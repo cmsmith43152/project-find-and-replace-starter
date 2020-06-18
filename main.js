@@ -5,6 +5,8 @@ const findInput = document.querySelector(".find-input")
 const replaceInput = document.querySelector(".replace-input")
 const replaceAllButton = document.querySelector(".replace-all-button")
 
+
+
 // The following variable holds your OUTER ARRAY of row elements.
 // Later you will need an OUTER LOOP to loop over the individual elements within
 // this array.
@@ -21,6 +23,21 @@ function getCellElements (currentRowElement) {
 
 
 // YOUR CODE GOES HERE
+replaceAllButton.addEventListener("click", function () {
+  
+    let findValue = findInput.value
+    console.log (findValue)
+    let replaceValue = replaceInput.value 
+    console.log (replaceValue)
+
+    const name = ['Alice', 'George', 'Beth', 'Cindy'],
+    
+    for (let itemIndex = 0; itemIndex < name.length; itemIndex += 1) {
+        const currentItem = name[itemIndex];
+        console.log(itemIndex + ": " + currentItem);
+    }
+
+})
 
 
 // One last thing: dedicate very careful attention to using variables and
