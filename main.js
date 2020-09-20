@@ -5,14 +5,12 @@ const findInput = document.querySelector(".find-input")
 const replaceInput = document.querySelector(".replace-input")
 const replaceAllButton = document.querySelector(".replace-all-button")
 
-
-
 // The following variable holds your OUTER ARRAY of row elements.
 // Later you will need an OUTER LOOP to loop over the individual elements within
 // this array.
 const rowElements = document.querySelectorAll(".row")
 
-// When you call the function belwo, it will get and return an INNER ARRAY
+// When you call the function below, it will get and return an INNER ARRAY
 // containing the cell elements for a given row.
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
@@ -23,22 +21,20 @@ function getCellElements (currentRowElement) {
 
 
 // YOUR CODE GOES HERE
-replaceAllButton.addEventListener("click", function () {
-  
-    let findValue = findInput.value
-    console.log (findValue)
-    let replaceValue = replaceInput.value 
-    console.log (replaceValue)
-
-    const name = ['Alice', 'George', 'Beth', 'Cindy'],
-    
-    for (let itemIndex = 0; itemIndex < name.length; itemIndex += 1) {
-        const currentItem = name[itemIndex];
-        console.log(itemIndex + ": " + currentItem);
+replaceAllButton.addEventListener("click" , function() {
+    let findvalue = findInput.value 
+    let replacevalue = replaceInput.value
+    for (let rowIndex = 0; rowIndex < rowElements.length; rowIndex++ ) {
+        const CellElement = getCellElements (rowElements [rowIndex]) 
+        for ( let cellIndex = 0; cellIndex < CellElement.length; cellIndex++ ) {
+            let BElement = CellElement [cellIndex]
+            while (BElement.innerHTML.includes (findvalue)) {
+                BElement.innerHTML = BElement.innerHTML.replace(findvalue, replacevalue)
+            }
+        }
     }
 
 })
-
 
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
